@@ -49,7 +49,8 @@ def fetch_rrd_to_dict(filename, start="-1h", end="now", cf="AVERAGE"):
     return data_list
 
 # Beispielaufruf:
-data = fetch_rrd_to_dict('ShellyPStripG4-98A3167B61A0.rrd', start='-1w')
+data = fetch_rrd_to_dict('ShellyPStripG4-98A3167B61A0.rrd', start='-1d', end='now', cf='AVERAGE')
+print (type(data[0]))
 for entry in data:
     print(entry)
      
