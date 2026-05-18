@@ -5,6 +5,11 @@ import json
 URL = "http://192.168.2.5:8080/sendDevInfo"
 DATEI = "daten.json"
 
+URL1 = "http://192.168.2.5:8080/sendDevList"
+DATEI1 = "devlist.json"
+
+URL2 = "http://192.168.2.5:8080/sendDSInfo"
+DATEI2 = "dsinfo.json"
 
 def lade_json(url):
     response = requests.get(url, timeout=10)
@@ -28,6 +33,18 @@ def main():
         print(f"Daten gespeichert in: {DATEI}")
         print(daten)
 
+        daten1 = lade_json(URL1)
+        speichern(daten1, DATEI1)
+
+        print(f"Daten gespeichert in: {DATEI1}")
+        print(daten1)
+        
+        daten2 = lade_json(URL2)
+        speichern(daten2, DATEI2)
+
+        print(f"Daten gespeichert in: {DATEI2}")
+        print(daten2)
+        
     except requests.RequestException as e:
         print(f"HTTP-Fehler: {e}")
 
